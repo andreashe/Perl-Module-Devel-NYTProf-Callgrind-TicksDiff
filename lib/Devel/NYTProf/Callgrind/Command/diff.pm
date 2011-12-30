@@ -17,7 +17,7 @@ class Devel::NYTProf::Callgrind::Command::diff extends(MooseX::App::Cmd::Command
         documentation =>  'Filename where it should write the diff to. Default is STDOUT.',
     );
 
-    method abstract {
+    sub abstract {
         "Calculates the difference between 2 callgrind files.";
     }
 
