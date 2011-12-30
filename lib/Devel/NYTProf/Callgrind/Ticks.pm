@@ -209,11 +209,25 @@ sub saveFile{
     my $self = shift;
     my $file = shift;
     
-
+    my $text = $self->getAsText();
 
     open( my $fh, ">$file" ) or die "Can not write file $file";
 
-        print $fh "events: Ticks\n\n";
+        print $fh $text;
+
+    close( $fh );
+
+}
+
+
+
+sub getAsText{
+    my $self = shift;
+    my @lines;    
+
+        push @lines, "events: Ticks";
+        push @lines, "";
+
         my @pairs = qw( fl fn cfl cfn calls );
 
         foreach my $node ( @{ $self->list() } ){
@@ -224,16 +238,15 @@ sub saveFile{
                 push @block,"$p=".$node->{$p} if exists $node->{$p};
             }
 
-            print $fh join( "\n", @block )."\n";
-            print $fh $node->{'srcpos'}.' '.$node->{'ticks'}."\n";
-            print $fh "\n";
+            push @lines, join( "\n", @block );
+            push @lines, $node->{'srcpos'}.' '.$node->{'ticks'};
+            push @lines, "";
 
 
         }
         
-
-    close( $fh );
-
+    return join( "\n", @lines );
 }
+
 
 1;

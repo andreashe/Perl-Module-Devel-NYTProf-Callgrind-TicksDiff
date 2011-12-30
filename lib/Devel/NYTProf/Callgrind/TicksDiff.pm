@@ -212,12 +212,20 @@ sub saveDiffFile{
     my $file = shift or die "need filename";
 
     my $obj = $self->ticks_object_out();
-#use Data::Dumper;
-#print Dumper($obj);exit;
     $obj->saveFile( $file );
 
     if ( ! -f $file ){ die "Did not create file $file" };
 
 }
+
+
+sub getDiffText{
+    my $self = shift;
+
+    my $obj = $self->ticks_object_out();
+    return $obj->getAsText();
+}
+
+
 
 1;
