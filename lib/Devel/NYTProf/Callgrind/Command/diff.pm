@@ -3,6 +3,8 @@ use v5.10;
 
 use Getopt::Long::Descriptive; 
 
+
+
 class Devel::NYTProf::Callgrind::Command::diff extends(MooseX::App::Cmd::Command,Devel::NYTProf::Callgrind::Command) {
   
     has 'normalize' => (
@@ -71,3 +73,53 @@ class Devel::NYTProf::Callgrind::Command::diff extends(MooseX::App::Cmd::Command
 
 
 1;
+
+
+
+
+=head1 NAME
+
+class Devel::NYTProf::Callgrind::Command::diff Command line unit for TicksDiff
+
+=head1 SYNOPSIS
+
+
+ callgrind diff fileA.callgrind fileB.callgrind --out callgrind --normalize
+
+
+
+=head1 DESCRIPTION
+
+ Please see TicksDiff for more details.
+
+
+=head1 REQUIRES
+
+L<MooseX::App::Cmd::Command>
+
+L<Devel::NYTProf::Callgrind::Command>
+
+
+
+=head1 METHODS
+
+
+=head2 execute
+
+Main execution unit for command line.
+
+
+=head1 LICENCE
+
+You can redistribute it and/or modify it under the conditions of
+LGPL and Artistic Licence.
+
+
+=head1 AUTHOR
+
+Andreas Hernitscheck - ahernit AT cpan.org
+
+
+
+=cut
+
