@@ -4,7 +4,7 @@ use v5.10;
 use strict;
 use warnings;
 use Devel::NYTProf::Callgrind::Ticks;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 # If you do a performance analysis with NYTProf over different
 # computers and want to know what makes the application

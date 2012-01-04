@@ -4,14 +4,12 @@ use lib '../lib';
 use Test::More;
 use FindBin qw($RealBin);
 use Try::Tiny;
-
-use File::Tempdir;
+use File::Temp;
 
 use warnings;
 no warnings 'misc'; # reuse of var names
 
-my $temp = File::Tempdir->new()->name();
-mkdir( $temp );
+my $temp = File::Temp->newdir();
 
 diag( "Temp dir: $temp" );
 

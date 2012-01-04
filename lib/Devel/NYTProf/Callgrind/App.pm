@@ -1,6 +1,6 @@
 use MooseX::Declare;
 
-class Devel::NYTProf::Callgrind::Command extends MooseX::App::Cmd  with MooseX::Getopt {
+class Devel::NYTProf::Callgrind::App extends MooseX::App::Cmd  with MooseX::Getopt {
    
 
     # this is a workaround to keep it named Command.pm. Hopefully rjbs merges my

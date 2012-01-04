@@ -5,7 +5,7 @@ use Getopt::Long::Descriptive;
 
 
 
-class Devel::NYTProf::Callgrind::Command::diff extends(MooseX::App::Cmd::Command,Devel::NYTProf::Callgrind::Command) {
+class Devel::NYTProf::Callgrind::App::Command::diff extends(MooseX::App::Cmd::Command,Devel::NYTProf::Callgrind::App) {
   
     has 'normalize' => (
         is  =>  'rw',
