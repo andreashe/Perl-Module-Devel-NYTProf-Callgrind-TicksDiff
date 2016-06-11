@@ -129,7 +129,7 @@ has 'allow_negative' => (
 );
 
 
-sub _loadFiles{
+sub _loadFiles{ 
     my $self = shift;
     my $reffiles = $self->files() or croak("files must be set");
     my @files = @{ $reffiles };
