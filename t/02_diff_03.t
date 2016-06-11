@@ -18,7 +18,7 @@ my $fileout = "$temp/out.callgrind";
 my $file  = "$RealBin/data/test04e.callgrind";
 my $file2 = "$RealBin/data/test05e.callgrind";
 
-try{
+
     
     use_ok 'Devel::NYTProf::Callgrind::TicksDiff';
     my $tickdiff = Devel::NYTProf::Callgrind::TicksDiff->new( files => [$file,$file2] );
@@ -99,9 +99,6 @@ try{
     }
 
 
-}catch{
-    fail $_;
-};
 
 
 # cleanup

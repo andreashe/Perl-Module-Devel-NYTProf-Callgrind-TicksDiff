@@ -10,7 +10,7 @@ use Try::Tiny;
 my $file  = "$RealBin/data/test01.callgrind";
 my $file2 = "$RealBin/data/test03.callgrind";
 
-try{
+
     
     use_ok 'Devel::NYTProf::Callgrind::TicksDiff';
     my $tickdiff = Devel::NYTProf::Callgrind::TicksDiff->new( files => [$file,$file2] );
@@ -35,9 +35,6 @@ try{
 
 
 
-}catch{
-    fail $_;
-};
 
 
 

@@ -4,7 +4,9 @@ use v5.10;
 use strict;
 use warnings;
 use Devel::NYTProf::Callgrind::Ticks;
-our $VERSION = '0.03';
+use Carp;
+
+our $VERSION = '0.04';
 
 # If you do a performance analysis with NYTProf over different
 # computers and want to know what makes the application
@@ -86,6 +88,7 @@ use Moose;
 has 'files' => (
     is => 'rw',
     isa => 'ArrayRef',
+    required => 1,
     default => sub {[]},
 );
 
@@ -128,7 +131,8 @@ has 'allow_negative' => (
 
 sub _loadFiles{
     my $self = shift;
-    my @files = @{ $self->files() };
+    my $reffiles = $self->files() or croak("files must be set");
+    my @files = @{ $reffiles };
     my @objs;
 
     foreach my $file (@files){
@@ -138,7 +142,9 @@ sub _loadFiles{
     }
 
     
-  $self->ticks_objects( \@objs );
+    $self->ticks_objects( \@objs );
+  
+    return \@objs; # for Moose builder
 }
 
 
